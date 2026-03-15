@@ -1,6 +1,6 @@
 import firstimage from "../assets/1.jpeg";
 import secondimage from "../assets/11.jpeg";
-import thirdimage from "../assets/3.jpg";
+import thirdimage from "../assets/3.JPG";
 import varshavideo from "../assets/varsha.mp4";
 import { useState, useEffect } from "react";
 
