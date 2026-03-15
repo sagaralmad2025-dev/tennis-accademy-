@@ -15,11 +15,6 @@ export default function AcademySection() {
                 src={courtImage}
               />
             </div>
-            {/* Experience Box */}
-            <div className="absolute -bottom-8 -right-6 md:-bottom-12 md:-right-12 bg-white text-navy-900 p-8 md:p-12 hidden sm:block shadow-2xl z-20">
-              <span className="text-4xl md:text-6xl serif-text font-bold block mb-2">6+</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Years Coaching Experience</span>
-            </div>
           </div>
 
           {/* Content Section */}

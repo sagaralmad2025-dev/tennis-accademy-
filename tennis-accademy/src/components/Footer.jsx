@@ -14,14 +14,7 @@ export default function Footer() {
             <p className="text-navy-900/40 text-xs leading-relaxed font-light mb-8 max-w-xs">
               A sanctuary for the sport. Dedicated to those who view tennis not just as a game, but as a pursuit of the sublime.
             </p>
-            <div className="flex gap-6">
-              <a className="text-navy-900/30 hover:text-navy-900 transition-colors" href="#">
-                <span className="material-symbols-outlined">share</span>
-              </a>
-              <a className="text-navy-900/30 hover:text-navy-900 transition-colors" href="#">
-                <span className="material-symbols-outlined">public</span>
-              </a>
-            </div>
+
           </div>
 
           {/* Curriculum Links */}
@@ -67,6 +60,14 @@ export default function Footer() {
             <a className="hover:text-navy-900 transition-colors" href="#">Privacy</a>
             <a className="hover:text-navy-900 transition-colors" href="#">Cookie Policy</a>
           </div>
+        </div>
+
+        {/* View Counter */}
+        <div className="flex justify-center mt-8 opacity-50 hover:opacity-100 transition-opacity">
+          {/* hitwebcounter Code START */}
+          <a href="https://www.hitwebcounter.com/" target="_blank" rel="noreferrer">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=21483079&style=0007&nbdigits=6&type=page&initCount=0" title="Free Tools" alt="Free Tools" border="0" />
+          </a>
         </div>
       </div>
     </footer>
