@@ -57,15 +57,15 @@ export default function ContactSection() {
               Fill in the details below to apply for admission at Kalaburagi Tennis Academy. Fields marked with * are required.
             </p>
             <div className="space-y-10">
-              <div className="flex gap-6">
-                <span className="material-symbols-outlined text-white/30">location_on</span>
+              <div className="flex gap-4 md:gap-6 items-start">
+                <span className="material-symbols-outlined text-white/30 shrink-0">location_on</span>
                 <p className="text-sm font-light leading-relaxed">
                   Kalaburagi Tennis Academy, Kalaburagi, Karnataka
                 </p>
               </div>
-              <div className="flex gap-6">
-                <span className="material-symbols-outlined text-white/30">alternate_email</span>
-                <p className="text-sm font-light leading-relaxed">
+              <div className="flex gap-4 md:gap-6 items-center">
+                <span className="material-symbols-outlined text-white/30 shrink-0">alternate_email</span>
+                <p className="text-sm font-light leading-relaxed break-all">
                   info@kalaburagitennisacademy.in
                 </p>
               </div>

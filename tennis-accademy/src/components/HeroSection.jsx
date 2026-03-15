@@ -33,9 +33,9 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
-            <button className="bg-white text-navy-900 px-8 py-4 font-bold text-xs tracking-widest uppercase hover:bg-white/90 transition">
+            <a href="/#contact" className="bg-white text-navy-900 px-8 py-4 font-bold text-xs tracking-widest uppercase hover:bg-white/90 transition text-center inline-block">
               Join Training
-            </button>
+            </a>
             <Link
               to="/about-coach"
               className="border border-white/30 text-white px-8 py-4 font-bold text-xs tracking-widest uppercase hover:bg-white/10 transition text-center"
