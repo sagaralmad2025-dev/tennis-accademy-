@@ -1,151 +1,135 @@
 import { useState, useEffect } from "react";
+import face0 from "../assets/sagar .jpeg";
+import face1 from "../assets/appu.JPG";
+import face2 from "../assets/cheaten.JPG";
+import face3 from "../assets/kartik.JPG";
+import face4 from "../assets/nirgun.JPG";
+import face5 from "../assets/raghu.JPG";
+import face6 from "../assets/var.JPG";
+import face7 from "../assets/vijay.JPG";
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const testimonials = [
     {
-      quote:
-        "The level of coaching here is unmatched. I've improved my backhand consistency more in 3 months here than in 3 years elsewhere.",
-      name: "Marco Valeri",
-      role: "ATP Challenger Circuit",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDlNZV9Xhw-Q4WwaEwL3YKuhxrXjHqNxapxXDf9X0n4yMopEhlRnW7hkxAcA7O3U2boAnr2hXmXBmvtJR1hNvAEnLlQrjzIFH-96nhu5zmfVSji6WHqTKmqfjIAntH1GJt6cgVtY-bXR7fAeuS7hUw_ovHMVLPN68WsxiP70SqS4_XSFwoW33RkZkZtWY3M93VItBcgqpV0q_8LMBK2hfGGKRkA0mq13JR56Iard97c4lm1bwY-My44ulwlz6yVLfvrg4JUTgfinG0",
+      quote: "Training at Kalaburagi Tennis Academy has been a life-changing experience. The discipline and coaching quality here is truly world-class.",
+      name: "Sagar",
+      role: "Academy Student",
+      image: face0,
     },
     {
-      quote:
-        "The environment is incredibly professional. My son has not only improved his tennis but also his discipline and work ethic.",
-      name: "Sarah Jenkins",
-      role: "Elite Parent",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDpvVQfOyONZPCBf0eDPJ5u21wSnuwTpQc8Y29nET9jirfM71FZYT0gdAijz5ebz61mdeJzKarbd4x7ctA62gJJtUiwTB92xnj2qqbfSMF0hkWydpmJLlC8deM7_8rbRMT0GRiFCqfZdM2MpRh2SRAJFLJF1K-dw_cH76TPVOZvpAK19Ca-9B40UaBvmPlb1v5ey4XbM8BK9-1A6ATjytFyEiwreMXuyp0zlO9NT0BQZh9zArNelFLylaaXkiZ5GkUcuASfcJZBqeo",
+      quote: "The level of coaching here is unmatched. I've improved my backhand consistency more in 3 months here than in 3 years elsewhere.",
+      name: "Appu",
+      role: "Academy Student",
+      image: face1,
     },
     {
-      quote:
-        "The facilities are world-class. Playing on these courts feels like being at a major tournament. Absolutely highly recommended.",
-      name: "David Chen",
-      role: "Competitive Amateur",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuBHOTe1p8TqLlTPAJwoLuodTrSC-IBmkwCyJJF2xDH0UuCYKjoa_E2J3LgOeKENLA2AY27SWP0ALj9CA0E_LQ6BeQmZKCXuWHZgunglrpaD9AHjdqNfxck6_eIQQ_Nj3QfoV7kigso4PAg8NUbVvt0evDACXR-gn5WrN15t-RDwA_0ff5J_3ueTRcg6n9_rzIEBLh5Xd7xn_P5ecTkgveMPJlkJ_FgBEXsTqKf98fqb4ThGyLvLpLIH6LwV1KN_rSsQ85d6vjAuaSk",
+      quote: "The environment is incredibly professional. My tennis has improved tremendously under this structured coaching.",
+      name: "Cheaten",
+      role: "Academy Student",
+      image: face2,
     },
     {
-      quote:
-        "Amazing experience! The personalized attention and expert guidance have transformed my game completely. I feel like a champion already.",
-      name: "Jessica Rodriguez",
-      role: "Junior Tournament Champion",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDlNZV9Xhw-Q4WwaEwL3YKuhxrXjHqNxapxXDf9X0n4yMopEhlRnW7hkxAcA7O3U2boAnr2hXmXBmvtJR1hNvAEnLlQrjzIFH-96nhu5zmfVSji6WHqTKmqfjIAntH1GJt6cgVtY-bXR7fAeuS7hUw_ovHMVLPN68WsxiP70SqS4_XSFwoW33RkZkZtWY3M93VItBcgqpV0q_8LMBK2hfGGKRkA0mq13JR56Iard97c4lm1bwY-My44ulwlz6yVLfvrg4JUTgfinG0",
+      quote: "The facilities are world-class. Playing on these courts feels like being at a major tournament.",
+      name: "Kartik",
+      role: "Academy Student",
+      image: face3,
     },
     {
-      quote:
-        "The holistic approach to training is unique. They focus not just on technique but on character development and mental resilience.",
-      name: "James Mitchell",
-      role: "Rising Pro Player",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDpvVQfOyONZPCBf0eDPJ5u21wSnuwTpQc8Y29nET9jirfM71FZYT0gdAijz5ebz61mdeJzKarbd4x7ctA62gJJtUiwTB92xnj2qqbfSMF0hkWydpmJLlC8deM7_8rbRMT0GRiFCqfZdM2MpRh2SRAJFLJF1K-dw_cH76TPVOZvpAK19Ca-9B40UaBvmPlb1v5ey4XbM8BK9-1A6ATjytFyEiwreMXuyp0zlO9NT0BQZh9zArNelFLylaaXkiZ5GkUcuASfcJZBqeo",
+      quote: "Amazing experience! The personalized attention and expert guidance have transformed my game completely.",
+      name: "Nirgun",
+      role: "Academy Student",
+      image: face4,
     },
     {
-      quote:
-        "My daughter has gained confidence both on and off the court. The coaches genuinely care about each player's development and well-being.",
-      name: "Patricia Liu",
-      role: "Proud Parent",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuBHOTe1p8TqLlTPAJwoLuodTrSC-IBmkwCyJJF2xDH0UuCYKjoa_E2J3LgOeKENLA2AY27SWP0ALj9CA0E_LQ6BeQmZKCXuWHZgunglrpaD9AHjdqNfxck6_eIQQ_Nj3QfoV7kigso4PAg8NUbVvt0evDACXR-gn5WrN15t-RDwA_0ff5J_3ueTRcg6n9_rzIEBLh5Xd7xn_P5ecTkgveMPJlkJ_FgBEXsTqKf98fqb4ThGyLvLpLIH6LwV1KN_rSsQ85d6vjAuaSk",
+      quote: "The holistic approach to training is unique. They focus not just on technique but on character development and mental resilience.",
+      name: "Raghu",
+      role: "Academy Student",
+      image: face5,
     },
     {
-      quote:
-        "Exceptional training facility and coaching staff. The structured curriculum has elevated my game to professional standards.",
-      name: "Alexander Petrov",
-      role: "ITF Pro Circuit",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDlNZV9Xhw-Q4WwaEwL3YKuhxrXjHqNxapxXDf9X0n4yMopEhlRnW7hkxAcA7O3U2boAnr2hXmXBmvtJR1hNvAEnLlQrjzIFH-96nhu5zmfVSji6WHqTKmqfjIAntH1GJt6cgVtY-bXR7fAeuS7hUw_ovHMVLPN68WsxiP70SqS4_XSFwoW33RkZkZtWY3M93VItBcgqpV0q_8LMBK2hfGGKRkA0mq13JR56Iard97c4lm1bwY-My44ulwlz6yVLfvrg4JUTgfinG0",
+      quote: "My confidence has grown both on and off the court. The coaches genuinely care about each player's development.",
+      name: "Varsha",
+      role: "Academy Student",
+      image: face6,
     },
     {
-      quote:
-        "The academy's commitment to excellence is evident in every detail. My journey here has been transformative both as an athlete and as a person.",
-      name: "Victoria Thompson",
-      role: "National Champion",
-      image:
-        "https://lh3.googleusercontent.com/aida-public/AB6AXuDpvVQfOyONZPCBf0eDPJ5u21wSnuwTpQc8Y29nET9jirfM71FZYT0gdAijz5ebz61mdeJzKarbd4x7ctA62gJJtUiwTB92xnj2qqbfSMF0hkWydpmJLlC8deM7_8rbRMT0GRiFCqfZdM2MpRh2SRAJFLJF1K-dw_cH76TPVOZvpAK19Ca-9B40UaBvmPlb1v5ey4XbM8BK9-1A6ATjytFyEiwreMXuyp0zlO9NT0BQZh9zArNelFLylaaXkiZ5GkUcuASfcJZBqeo",
+      quote: "Exceptional coaching and a truly professional setup. Kalaburagi Tennis Academy has elevated my game to a new level.",
+      name: "Vijay",
+      role: "Academy Student",
+      image: face7,
     },
   ];
 
-  // Auto-scroll every 5 seconds
+  // On mobile show 1, on desktop show 3
+  const [itemsPerPage, setItemsPerPage] = useState(1);
+
+  useEffect(() => {
+    const update = () => setItemsPerPage(window.innerWidth >= 1024 ? 3 : 1);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const totalPages = Math.ceil(testimonials.length / itemsPerPage);
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % Math.ceil(testimonials.length / 3));
+      setCurrentIndex((prev) => (prev + 1) % totalPages);
     }, 5000);
-
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [totalPages]);
 
-  const itemsPerPage = 3;
-  const displayedTestimonials = testimonials.slice(
+  const displayed = testimonials.slice(
     currentIndex * itemsPerPage,
     currentIndex * itemsPerPage + itemsPerPage
   );
 
   return (
-    <section className="py-32 bg-white" id="testimonials">
+    <section className="py-20 md:py-32 bg-white" id="testimonials">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16 md:mb-24">
           <span className="text-navy-900/40 text-xs font-bold tracking-widest uppercase mb-4 block">
             Reflections
           </span>
-          <h2 className="text-5xl serif-text text-navy-900">Voices of the Elite</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl serif-text text-navy-900">
+            Voices of the Elite
+          </h2>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative group">
-          {/* Testimonials Grid */}
-          <div className="grid lg:grid-cols-3 gap-12">
-            {displayedTestimonials.map((testimonial, idx) => (
-              <div key={idx} className="flex flex-col transition-all duration-500">
-                <span className="material-symbols-outlined text-navy-900/10 text-6xl font-light mb-8">
-                  format_quote
-                </span>
-                <p className="text-lg serif-text italic text-navy-900 mb-10 leading-relaxed">
-                  "{testimonial.quote}"
-                </p>
-                <div className="flex items-center gap-4 mt-auto pt-8 border-t border-navy-900/5">
-                  <div className="w-12 h-12 rounded-full overflow-hidden grayscale flex-shrink-0">
-                    <img
-                      className="w-full h-full object-cover"
-                      alt={testimonial.name}
-                      src={testimonial.image}
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold tracking-widest uppercase">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-[10px] text-slate-400 uppercase tracking-tighter">
-                      {testimonial.role}
-                    </p>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {displayed.map((t, idx) => (
+            <div key={idx} className="flex flex-col transition-all duration-500">
+
+              <p className="text-base md:text-lg serif-text italic text-navy-900 mb-8 leading-relaxed">
+                "{t.quote}"
+              </p>
+              <div className="flex items-center gap-4 mt-auto pt-6 border-t border-navy-900/5">
+                <div className="w-12 h-12 rounded-full overflow-hidden grayscale flex-shrink-0">
+                  <img className="w-full h-full object-cover" alt={t.name} src={t.image} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold tracking-widest uppercase">{t.name}</p>
+                  <p className="text-[10px] text-slate-400 uppercase tracking-tighter">{t.role}</p>
                 </div>
               </div>
-            ))}
-          </div>
-
+            </div>
+          ))}
         </div>
 
         {/* Indicators */}
-        <div className="flex justify-center gap-3 mt-16">
-          {Array.from({ length: Math.ceil(testimonials.length / 3) }).map(
-            (_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentIndex(idx)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  idx === currentIndex
-                    ? "bg-navy-900 scale-125"
-                    : "bg-navy-900/30 hover:bg-navy-900/50"
-                }`}
-                aria-label={`Go to testimonial set ${idx + 1}`}
-              />
-            )
-          )}
+        <div className="flex justify-center gap-3 mt-12">
+          {Array.from({ length: totalPages }).map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              aria-label={`Testimonial page ${idx + 1}`}
+              className={`w-3 h-3 rounded-full transition-all ${
+                idx === currentIndex ? "bg-navy-900 scale-125" : "bg-navy-900/30 hover:bg-navy-900/50"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

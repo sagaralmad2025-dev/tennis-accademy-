@@ -55,17 +55,17 @@ export default function ProgramsSection() {
   );
 
   return (
-    <section className="py-32 bg-white" id="programs">
+    <section className="py-20 md:py-32 bg-white" id="programs">
       <div className="container mx-auto px-6">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6">
           <div className="max-w-2xl">
             <span className="text-navy-900/40 text-xs font-bold tracking-widest uppercase mb-4 block">
               Our Programs
             </span>
 
-            <h2 className="text-5xl serif-text text-navy-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl serif-text text-navy-900 leading-tight">
               Tennis Training <br />
               Programs
             </h2>
