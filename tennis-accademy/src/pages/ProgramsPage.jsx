@@ -85,12 +85,7 @@ const weeks = [
   },
 ];
 
-const highlights = [
-  { icon: "calendar_month", value: "8 Weeks", label: "Structured Program" },
-  { icon: "sports_tennis", value: "24+", label: "Training Sessions" },
-  { icon: "emoji_events", value: "1", label: "Internal Tournament" },
-  { icon: "group", value: "All", label: "Skill Levels Welcome" },
-];
+
 
 export default function ProgramsPage() {
   return (
@@ -121,7 +116,7 @@ export default function ProgramsPage() {
         <div className="container mx-auto px-6 lg:px-20">
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {weeks.map((w, idx) => (
+            {weeks.map((w) => (
               <div
                 key={w.week}
                 className="group border border-navy-900/10 p-6 md:p-10 hover:border-navy-900/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
