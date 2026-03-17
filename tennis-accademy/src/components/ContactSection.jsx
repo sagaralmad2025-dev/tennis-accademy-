@@ -16,26 +16,37 @@ const Input = ({ name, placeholder, type = "text", required }) => (
     type={type}
     name={name}
     required={required}
+    pattern={type === "tel" ? "[0-9]{10}" : undefined}
+    title={type === "tel" ? "Please enter a 10-digit phone number" : undefined}
   />
 );
 
 export default function ContactSection() {
-  const [submitted, setSubmitted] = useState(false);
+  const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);
 
-    const response = await fetch("https://formspree.io/f/xojknrjo", {
-      method: "POST",
-      body: data,
-      headers: { Accept: "application/json" },
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/xojknrjo", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
 
-    if (response.ok) {
-      setSubmitted(true);
-      form.reset();
+      if (response.ok) {
+        setToast({ show: true, message: 'Application successfully submitted', type: 'success' });
+        form.reset();
+        setTimeout(() => setToast({ show: false, message: '', type: 'success' }), 3200);
+      } else {
+        setToast({ show: true, message: 'Error submitting application. Please try again.', type: 'error' });
+        setTimeout(() => setToast({ show: false, message: '', type: 'error' }), 3200);
+      }
+    } catch (error) {
+      setToast({ show: true, message: 'Network error. Please check your connection and try again.', type: 'error' });
+      setTimeout(() => setToast({ show: false, message: '', type: 'error' }), 3200);
     }
   };
 
@@ -58,10 +69,18 @@ export default function ContactSection() {
             </p>
             <div className="space-y-10">
               <div className="flex gap-4 md:gap-6 items-start">
-                <span className="material-symbols-outlined text-white/30 shrink-0">location_on</span>
+                <span className="material-symbols-outlined text-white/30 shrink-0">location</span>
                 <p className="text-sm font-light leading-relaxed">
-                  Kalaburagi Tennis Academy, Kalaburagi, Karnataka
+                 Chandrashekhar Patil sports Stadium, Kalaburagi, Karnataka
                 </p>
+                
+              </div>
+
+                <div className="flex gap-4 md:gap-6 items-start">
+                <span className="material-symbols-outlined text-white/30 shrink-0">phone no.</span>
+                <p className="text-sm font-light leading-relaxed">
+                 9986866839 </p>
+                
               </div>
               <div className="flex gap-4 md:gap-6 items-center">
                 <span className="material-symbols-outlined text-white/30 shrink-0">alternate_email</span>
@@ -74,124 +93,114 @@ export default function ContactSection() {
 
           {/* Right Side - Form */}
           <div className="lg:w-3/5 p-8 md:p-16 bg-navy-800 overflow-y-auto">
+            <form onSubmit={handleSubmit} className="space-y-8">
 
-            {submitted ? (
-              /* ── SUCCESS STATE ── */
-              <div className="flex flex-col items-center justify-center h-full min-h-[400px] text-center gap-6">
-                <span className="material-symbols-outlined text-white/60 text-6xl">check_circle</span>
-                <h3 className="text-3xl serif-text text-white">
-                  Application <span className="italic font-normal">Received</span>
-                </h3>
-                <p className="text-white/60 font-light leading-relaxed max-w-sm">
-                  Application submitted successfully. Our team will contact you shortly.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-4 border border-white/30 text-white px-10 py-3 text-xs font-bold tracking-widest uppercase hover:bg-white/10 transition"
-                >
-                  Submit Another
-                </button>
-              </div>
-            ) : (
-              /* ── FORM ── */
-              <form onSubmit={handleSubmit} className="space-y-8">
+              {/* Hidden subject for Formspree */}
+              <input type="hidden" name="_subject" value="New Tennis Academy Admission Application" />
 
-                {/* Hidden subject for Formspree */}
-                <input type="hidden" name="_subject" value="New Tennis Academy Admission Application" />
+              {/* ── TRAINEE INFO ── */}
+              <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
+                Trainee Information
+              </p>
 
-                {/* ── TRAINEE INFO ── */}
-                <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
-                  Trainee Information
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Field label="Name of the Trainee" required>
-                    <Input name="trainee_name" placeholder="Trainee Name" required />
-                  </Field>
-                  <Field label="Date of Birth" required>
-                    <Input name="dob" placeholder="dd-mm-yyyy" type="date" required />
-                  </Field>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Field label="Age" required>
-                    <Input name="age" placeholder="Player Age" type="number" required />
-                  </Field>
-                  <Field label="Phone Number" required>
-                    <Input name="trainee_phone" placeholder="Enter Number" type="tel" required />
-                  </Field>
-                </div>
-
-                {/* ── FATHER INFO ── */}
-                <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
-                  Father's Information
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Field label="Name of the Father" required>
-                    <Input name="father_name" placeholder="Father Name" />
-                  </Field>
-                  <Field label="Occupation">
-                    <Input name="father_occupation" placeholder="Enter Occupation" />
-                  </Field>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Field label="Phone Number">
-                    <Input name="father_phone" placeholder="Enter Number" type="tel" />
-                  </Field>
-                  <Field label="Off. Address">
-                    <Input name="father_office_address" placeholder="Enter Address" />
-                  </Field>
-                </div>
-
-                {/* ── MOTHER INFO ── */}
-                <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
-                  Mother's Information
-                </p>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Field label="Name of the Mother" required>
-                    <Input name="mother_name" placeholder="Mother Name" />
-                  </Field>
-                  <Field label="Occupation">
-                    <Input name="mother_occupation" placeholder="Enter Occupation" />
-                  </Field>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <Field label="Phone Number">
-                    <Input name="mother_phone" placeholder="Enter Number" type="tel" />
-                  </Field>
-                  <Field label="Off. Address">
-                    <Input name="mother_office_address" placeholder="Enter Address" />
-                  </Field>
-                </div>
-
-                {/* ── RESIDENCE ── */}
-                <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
-                  Residence
-                </p>
-
-                <Field label="Residence Address" required>
-                  <textarea
-                    className="w-full bg-transparent border-none p-0 text-white placeholder-white/20 focus:outline-none focus:ring-0 resize-none"
-                    placeholder="Enter Address"
-                    rows="2"
-                    name="residence_address"
-                    required
-                  />
+              <div className="grid md:grid-cols-2 gap-8">
+                <Field label="Name of the Trainee" required>
+                  <Input name="trainee_name" placeholder="Trainee Name" required />
                 </Field>
+                <Field label="Date of Birth" required>
+                  <Input name="dob" placeholder="dd-mm-yyyy" type="date" required />
+                </Field>
+              </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-white text-navy-900 py-6 font-bold text-xs tracking-[0.3em] uppercase hover:bg-white/90 transition-all"
-                >
-                  Submit Application
-                </button>
-              </form>
-            )}
+              <div className="grid md:grid-cols-2 gap-8">
+                <Field label="Age" required>
+                  <Input name="age" placeholder="Player Age" type="number" required />
+                </Field>
+                <Field label="Phone Number" required>
+                  <Input name="trainee_phone" placeholder="Enter Number" type="tel" required />
+                </Field>
+              </div>
 
+              {/* ── FATHER INFO ── */}
+              <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
+                Father's Information
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <Field label="Name of the Father" required>
+                  <Input name="father_name" placeholder="Father Name" />
+                </Field>
+                <Field label="Occupation">
+                  <Input name="father_occupation" placeholder="Enter Occupation" />
+                </Field>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <Field label="Phone Number">
+                  <Input name="father_phone" placeholder="Enter Number" type="tel" />
+                </Field>
+                <Field label="Off. Address">
+                  <Input name="father_office_address" placeholder="Enter Address" />
+                </Field>
+              </div>
+
+              {/* ── MOTHER INFO ── */}
+              <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
+                Mother's Information
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <Field label="Name of the Mother" required>
+                  <Input name="mother_name" placeholder="Mother Name" />
+                </Field>
+                <Field label="Occupation">
+                  <Input name="mother_occupation" placeholder="Enter Occupation" />
+                </Field>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <Field label="Phone Number">
+                  <Input name="mother_phone" placeholder="Enter Number" type="tel" />
+                </Field>
+                <Field label="Off. Address">
+                  <Input name="mother_office_address" placeholder="Enter Address" />
+                </Field>
+              </div>
+
+              {/* ── RESIDENCE ── */}
+              <p className="text-white/40 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-white/10 pb-3">
+                Residence
+              </p>
+
+              <Field label="Residence Address" required>
+                <textarea
+                  className="w-full bg-transparent border-none p-0 text-white placeholder-white/20 focus:outline-none focus:ring-0 resize-none"
+                  placeholder="Enter Address"
+                  rows="2"
+                  name="residence_address"
+                  required
+                />
+              </Field>
+
+              <button
+                type="submit"
+                className="w-full bg-white text-navy-900 py-6 font-bold text-xs tracking-[0.3em] uppercase hover:bg-white/90 transition-all"
+              >
+                Submit Application
+              </button>
+            </form>
+
+            <div
+              className={`fixed top-6 right-6 z-50 max-w-xs rounded-full px-5 py-3 shadow-xl backdrop-blur text-white transition-transform duration-300 ease-out ${
+                toast.show
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-10 opacity-0"
+              } ${toast.type === "success" ? "bg-green-500" : "bg-red-500"}`}
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              <span className="text-sm font-medium">{toast.message}</span>
+            </div>
           </div>
         </div>
       </div>

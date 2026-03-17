@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
     },
     {
       quote: "The environment is incredibly professional. My tennis has improved tremendously under this structured coaching.",
-      name: "Cheaten",
+      name: "Chetan",
       role: "Academy Student",
       image: face2,
     },
