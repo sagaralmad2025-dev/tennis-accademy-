@@ -79,7 +79,7 @@ export default function ContactSection() {
                 <div className="flex gap-4 md:gap-6 items-start">
                 <span className="material-symbols-outlined text-white/30 shrink-0">phone no.</span>
                 <p className="text-sm font-light leading-relaxed">
-                 9986866839 </p>
+                 9986866839</p>
                 
               </div>
               <div className="flex gap-4 md:gap-6 items-center">
