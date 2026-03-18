@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import heroImage from "../assets/herooooo.jpeg";
+import heroImage from "../assets/herofinal.jpeg";
 
 export default function HeroSection() {
   return (
@@ -10,7 +10,7 @@ export default function HeroSection() {
         <img
           src={heroImage}
           alt="Akash Isampur Tennis Coaching"
-          className="w-full h-full object-cover brightness-125 contrast-110"
+          className="w-full h-full object-cover filter grayscale brightness-125 contrast-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-navy-900/30 to-transparent"></div>
       </div>
@@ -25,7 +25,7 @@ export default function HeroSection() {
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl serif-text text-white leading-[1.1] mb-6">
             Train with <br />
-            <span className="italic font-normal">Elite Coaching</span>
+            <span className="italic font-normal">Kalaburagi Tennis Coaching</span>
           </h1>
 
           <p className="text-base sm:text-lg text-white/80 mb-10 max-w-lg mx-auto md:ml-auto md:mr-0">

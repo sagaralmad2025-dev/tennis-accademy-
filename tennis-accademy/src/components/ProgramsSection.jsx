@@ -23,7 +23,7 @@ export default function ProgramsSection() {
       src: firstimage,
     },
     {
-      title: "Elite Performance Training",
+      title: "Kalaburagi Tennis Performance Training",
       description:
         "Advanced coaching designed to refine technique, endurance, and competitive mindset for serious athletes.",
       type: "image",
@@ -93,11 +93,11 @@ export default function ProgramsSection() {
                     <img
                       src={program.src}
                       alt={program.title}
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover/card:scale-105"
+                      className="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-700 group-hover/card:scale-105"
                     />
                   ) : (
                     <video
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover/card:scale-105"
+                      className="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-700 group-hover/card:scale-105"
                       autoPlay
                       muted
                       loop

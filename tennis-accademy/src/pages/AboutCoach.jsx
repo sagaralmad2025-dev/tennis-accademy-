@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import coachImage from "../assets/coach1.jpeg";
+import coachImage from "../assets/meet coach.jpeg";
 
 // Gallery training videos
 import training1 from "../assets/training1.mp4";
@@ -55,11 +55,11 @@ export default function AboutCoach() {
 
             {/* Image */}
             <div className="lg:w-5/12 relative flex-shrink-0">
-              <div className="relative z-10">
+              <div className="relative z-10 group">
                 <img
                   src={coachImage}
                   alt="Coach Akash Isampur"
-                  className="w-full aspect-[4/5] object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl border border-navy-900/10"
+                  className="w-full aspect-[4/5] object-cover object-top grayscale group-hover:grayscale-0 filter transition-all duration-700 shadow-2xl border border-navy-900/10"
                 />
               </div>
               {/* Floating accent */}
@@ -89,7 +89,7 @@ export default function AboutCoach() {
                   levels under the All India Tennis Association (AITA). His
                   firsthand experience on the competitive circuit gave him an
                   unparalleled understanding of what it takes to succeed at
-                  elite level.
+                  kalaburagi tennis level.
                 </p>
                 <p>
                   With over <strong className="text-navy-900 font-semibold">6 years of coaching experience</strong> and

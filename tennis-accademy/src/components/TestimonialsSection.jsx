@@ -94,7 +94,8 @@ export default function TestimonialsSection() {
             Reflections
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl serif-text text-navy-900">
-            Voices of the Elite
+            Train with
+            Kalaburagi Tennis 
           </h2>
         </div>
 
@@ -107,7 +108,7 @@ export default function TestimonialsSection() {
               </p>
               <div className="flex items-center gap-4 mt-auto pt-6 border-t border-navy-900/5">
                 <div className="w-12 h-12 rounded-full overflow-hidden grayscale flex-shrink-0">
-                  <img className="w-full h-full object-cover" alt={t.name} src={t.image} />
+                  <img className="w-full h-full object-cover filter grayscale" alt={t.name} src={t.image} />
                 </div>
                 <div>
                   <p className="text-xs font-bold tracking-widest uppercase">{t.name}</p>

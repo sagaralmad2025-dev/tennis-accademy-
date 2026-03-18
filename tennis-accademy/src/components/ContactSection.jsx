@@ -30,7 +30,7 @@ export default function ContactSection() {
     const data = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xojknrjo", {
+      const response = await fetch("https://formspree.io/f/xnjglger", {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
@@ -83,9 +83,14 @@ export default function ContactSection() {
                 
               </div>
               <div className="flex gap-4 md:gap-6 items-center">
-                <span className="material-symbols-outlined text-white/30 shrink-0">alternate_email</span>
-                <p className="text-sm font-light leading-relaxed break-all">
-                  info@kalaburagitennisacademy.in
+                <span className="material-symbols-outlined text-white/30 shrink-0">email</span>
+                <p className="text-sm font-light leading-relaxed whitespace-nowrap">
+                  <a
+                    className="text-white/70 hover:text-white transition"
+                    href="mailto:kalaburagitennisacademy001@gmail.com"
+                  >
+                    kalaburagitennisacademy001@gmail.com
+                  </a>
                 </p>
               </div>
             </div>
